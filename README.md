@@ -116,7 +116,7 @@ Use a dockblocker plugin from your favorite editor to automate this process.
 * Search the Unsplash api for images.
 * Should provide the search query and has optional pagination parameters.
 *
-* @param $query
+* @param string $query
 * @param int $page
 * @param int $perPage
 *
@@ -124,7 +124,7 @@ Use a dockblocker plugin from your favorite editor to automate this process.
 *
 * @return MediaSourceItemCollection
 */
-public function search($query, int $page = 1, int $perPage = 10)
+public function search(string $query, int $page = 1, int $perPage = 10)
 ```
 
 ### Comments
