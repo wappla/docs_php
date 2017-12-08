@@ -11,7 +11,7 @@ Predefined dotfiles used for standard configuration. Can be added on per-project
 Based on [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 Tool for automatically fix PHP coding standard issues.
 
-[Config file quick start](https://github.com/dotfiles/.php_cs)
+[Config file quick start](https://github.com/wappla/docs_php/blob/master/dotfiles/.php_cs)
 
 # PHP Style Guide & Best practices
 
