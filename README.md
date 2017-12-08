@@ -327,3 +327,43 @@ Examples :
  - replace `show` with `view`. A server shows a resource, a user views it.
  - replace `index` with `list`. A server has a index of posts. A user can view a list of them.
 
+ ### Blade
+
+### 1 space after start control structure directives
+- `@if`
+- `@elseif`
+- `@for`
+- `@foreach`
+- `@endforeach`
+- `@unless`
+- `@forelse`
+
+### No spaces after other directives
+- `@endif`
+- `@endfor`
+- `@else`
+- `@endforelse`
+- `@endunless`
+- `@section`
+- `@endsection`
+- `@show`
+- `@yield`
+- `@extends`
+- `@parent`
+- `@verbatim`
+- `@empty`
+- `@continue`
+- `@break`
+- `@php`
+- `@endphp`
+- `@include`
+- `@includeIf`
+- `@each`
+- `@push`
+- `@endpush`
+- `@stack`
+
+### 1 space between render braces and their content
+- `{{ $x }}`
+- `{!! $x !!}`
+
