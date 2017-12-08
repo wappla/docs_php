@@ -1,4 +1,19 @@
-# ![Logo](assets/signature.png) Wappla PHP Style Guide & Best practices
+# ![Logo](assets/signature.png) Wappla PHP
+
+- [Dotfiles](#dotfiles)
+
+## Dotfiles
+
+Predefined dotfiles used for standard configuration. Can be added on per-project basis and adjusted accordingly.
+
+### PHP CS FIXER
+
+Based on [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+Tool for automatically fix PHP coding standard issues.
+
+[Config file quick start](https://github.com/dotfiles/.php_cs)
+
+# PHP Style Guide & Best practices
 
 - [General PHP Rules](#general-php-rules)
 - [Coding practices](#coding-practices)
@@ -14,6 +29,16 @@ We basically follow the coding style related [PSR standards](http://www.php-fig.
 * [PSR-2: Coding Style Guide](http://www.php-fig.org/psr/psr-2/)
 
 ### Differences from PSR
+
+### Short array syntax
+
+```php
+// bad
+array('test', 'array');
+
+// good
+['test', 'array'];
+```
 
 #### Spaces around concatenation
 
