@@ -1,6 +1,6 @@
 # ![Logo](assets/signature.png) Wappla PHP
 
-- [Dotfiles](#dotfiles)
+A repository containing dotfiles, code style guides, best practices used in our company related to PHP.
 
 ## Dotfiles
 
@@ -17,7 +17,7 @@ Tool for automatically fix PHP coding standard issues.
 
 - [General PHP Rules](#general-php-rules)
 - [Coding practices](#coding-practices)
-- [Laravel Best practices](#laravel-best-practices)
+- [Laravel Best practice](#laravel-best-practices)
 
 ## General PHP Rules
 
@@ -192,4 +192,106 @@ Don't ignore errors, edge cases or faulty input. If something is really wrong, s
 ## Laravel Best practices
 
 Laravel provides the most value when you write things the way Laravel intended you to write it. If there's a documented way to achieve something, follow it. Whenever you do something differently, make sure you have a justification for *why* you didn't follow the defaults.
+
+### Configuration
+
+Configuration files must use kebab-case.
+
+```
+config/my-config.php
+```
+
+Configuration keys must use snake_case.
+
+```php
+// config/my-config.php
+return [
+    'live_key' => env('WAPPLA_LIVE_KEY'),
+];
+```
+
+Avoid using the `env` helper outside of configuration files. Create a configuration value from the `env` variable like above.
+
+## Artisan commands
+
+The names given to artisan commands should all be kebab-cased.
+
+```bash
+# Good
+php artisan make-good-guidelines
+
+# Bad
+php artisan deleteBadGuidelines
+```
+
+### Routing
+
+Public-facing urls must use kebab-case.
+
+```
+https://wappla.com/client-page
+```
+
+When referencing routes , use the action() helper or use named routes.
+
+```html
+<a href="{{ route('namedRoute') }}">Named route example</a>
+
+<a href="{{ action('NamedRouteController@index') }}">Action helper example</a>
+```
+
+## Controllers
+
+Try to keep controllers simple and stick to the default CRUD keywords (`index`, `create`, `store`, `show`, `edit`, `update`, `destroy`). Extract a new controller if you need other actions.
+
+In the following example, we could have `PostsController@favorite`, and `PostsController@unfavorite`, or we could extract it to a seperate `FavoritePostsController`.
+
+```php
+class PostsController
+{
+    public function create()
+    {
+        // ...
+    }
+
+    // ...
+
+    public function favorite(Post $post)
+    {
+        request()->user()->favorites()->attach($post);
+
+        return response(null, 200);
+    }
+
+    public function unfavorite(Post $post)
+    {
+        request()->user()->favorites()->detach($post);
+
+        return response(null, 200);
+    }
+}
+```
+
+Here we fall back to default CRUD words, `create` and `destroy`.
+
+```php
+class FavoritePostsController
+{
+    public function create(Post $post)
+    {
+        request()->user()->favorites()->attach($post);
+
+        return response(null, 200);
+    }
+
+    public function destroy(Post $post)
+    {
+        request()->user()->favorites()->detach($post);
+
+        return response(null, 200);
+    }
+}
+```
+
+This is a loose guideline that depends on the situation.
 
