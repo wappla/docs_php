@@ -250,7 +250,7 @@ When referencing routes , use the action() helper or use named routes.
 <a href="{{ action('NamedRouteController@index') }}">Action helper example</a>
 ```
 
-## Controllers
+### Controllers
 
 Try to keep controllers simple and stick to the default CRUD keywords (`index`, `create`, `store`, `show`, `edit`, `update`, `destroy`). Extract a new controller if you need other actions.
 
@@ -304,4 +304,26 @@ class FavoritePostsController
 ```
 
 This is a loose guideline that depends on the situation.
+
+### Gate - Policies
+
+Policies must use camelCase.
+
+```php
+Gate::define('editPost', function ($user, $post) {
+    return $user->id == $post->user_id;
+});
+```
+
+```html
+@can('editPost', $post)
+  //
+@endcan
+```
+
+Try to name abilities using default CRUD words, but do this from the user point of view.
+
+Examples :
+ - replace `show` with `view`. A server shows a resource, a user views it.
+ - replace `index` with `list`. A server has a index of posts. A user can view a list of them.
 
