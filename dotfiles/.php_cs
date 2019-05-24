@@ -19,6 +19,7 @@ return PhpCsFixer\Config::create()
         'php_unit_test_class_requires_covers' => true,
         'phpdoc_order' => true,
         'semicolon_after_instruction' => true,
+        'single_trait_insert_per_statement' => false
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
